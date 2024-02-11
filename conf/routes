@@ -1,0 +1,57 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+GET /posts/:postId controllers.PostController.readPost(postId:Long)
+
+GET /posts/user/:userId controllers.PostController.findPostsByUser(userId:Long)
+
+POST /posts controllers.PostController.createPost()
+
+PUT /posts/:postId controllers.PostController.updatePost(postId:Long)
+
+DELETE /posts/:postId controllers.PostController.removePost(postId:Long)
+
+GET /users/:userId controllers.UserController.readUser(userId:Long)
+
+POST /users controllers.UserController.createUser()
+
+PUT /users/:userId controllers.UserController.updateUser(userId:Long)
+
+DELETE /users/:userId controllers.UserController.deleteUser(userId:Long)
+
+GET /friendshipRequests/userReceived/:userId controllers.FriendshipRequestController.findUserReceivedFriendshipRequest(userId: Long)
+
+GET /friendshipRequests/userSent/:userId controllers.FriendshipRequestController.findUserSentFriendshipRequest(userId: Long)
+
+GET /friendshipRequests/:firstUserId/:secondUserId controllers.FriendshipRequestController.findFriendshipRequestByUsers(firstUserId:Long, secondUserId: Long)
+
+POST /friendshipRequests controllers.FriendshipRequestController.createFriendshipRequest()
+
+DELETE /friendshipRequests/:friendshipRequestId controllers.FriendshipRequestController.deleteFriendshipRequest(friendshipRequestId: Long)
+
+GET /friendships/user/:userId controllers.FriendshipController.findUserFriendships(userId: Long)
+
+GET /friendships/users/:firstUserId/:secondUserId controllers.FriendshipController.findFriendshipByUsers(firstUserId: Long, secondUserId: Long)
+
+POST /friendships controllers.FriendshipController.createFriendship()
+
+DELETE /friendships/:friendshipId controllers.FriendshipController.deleteFriendship(friendshipId:Long)
+
+POST /postLikes controllers.PostLikeController.createPostLike()
+
+DELETE /postLikes/:postLikeId controllers.PostLikeController.unlikePost(postLikeId: Long)
+
+GET /postLikes/:postId controllers.PostLikeController.findPostLikes(postId: Long)
+
+GET /homepage/:userId controllers.HomepageController.generateHomepage(userId: Long, limit : Int ?= 5, offset : Int ?= 0)
+
+GET /auth controllers.AuthController.login()
+
