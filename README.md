@@ -6,5 +6,6 @@ Backend project for a social network implemented in Scala using the Play framewo
 * Api for homepage(posts with pagination)
 * Authentication and authorization
 
-  Note: project is implemented during 3-weeks internship in NovaLite
+
+Note: project is implemented during 3-weeks internship in NovaLite
 
